@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+          <h2 class="text-center title-position">Push notification</h2>
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Badges</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Number of badges" [(ngModel)]="badge" name="badge">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Sound</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>ping.aiff</option>
+                    </select>  
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Alert</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Content of the notification" [(ngModel)]="alert" name="alert">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Device</label>
+                    <select class="form-control" [(ngModel)]="selectedDevice" name="device">
+                        <option *ngFor="let device of devices" [ngValue]="device">{{device.name}}</option>
+                    </select>
+                </div>
+            </form>
+            <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="sendNoteClick()">Send push notification</button>
+            <div *ngIf="status == 400">
+                <div class="alert alert-danger" role="alert">
+                    Error missing informations
+                </div>
+            </div>
+            <div *ngIf="status == 200">
+                <div class="alert alert-success" role="alert">
+                    Success, new notifcation has been send
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
