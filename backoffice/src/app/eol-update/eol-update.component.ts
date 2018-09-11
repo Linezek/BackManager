@@ -24,7 +24,7 @@ export class EolUpdateComponent implements OnInit {
     console.log("url -> " + this.url)
     console.log("content -> " + this.content)
     var update: Update = {
-      version: parseFloat(this.version),
+      version: this.version,
       url: this.url,
       content: this.content
     }

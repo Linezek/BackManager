@@ -24,7 +24,7 @@ export class EolNotificationComponent implements OnInit {
   constructor(private backAPI: BackAPIService) { }
 
   ngOnInit() {
-    this.backAPI.getData("http://localhost:4000/api/device").subscribe(response => {
+    this.backAPI.getData("/device").subscribe(response => {
       console.log(response)
       for (let key in response) {
         let value = response[key];
@@ -36,8 +36,6 @@ export class EolNotificationComponent implements OnInit {
       }
     })
   }
-
-  
 
   sendNoteClick() {
    var note: NotificationData = {
