@@ -1,3 +1,26 @@
-<p>
-  eol works!
-</p>
+<div class="container">
+  <div class="row">
+      <div class="col">
+          <div class="form-group">
+              <h2 class="text-center title-position">Devices</h2>
+              <select class="form-control" [(ngModel)]="selectedDevice" name="device">
+                  <option *ngFor="let device of devices" [ngValue]="device">{{device.name}}</option>
+              </select>
+              <h5> {{ selectedDevice.name }} </h5>
+              <p> {{ selectedDevice.version }}</p>
+              <p> {{ selectedDevice.serial }}</p>
+              <p> {{ selectedDevice.token }}</p>
+          </div>
+      </div>
+      <div class="col">
+          <div class="form-group">
+              <h2 class="text-center title-position">Update</h2>
+              <select class="form-control" [(ngModel)]="selectedUpdate" name="update">
+                  <option *ngFor="let update of updates" [ngValue]="update">{{ update.version }}</option>
+              </select>
+              <p> {{ selectedUpdate.url }}</p>
+              <p> {{ selectedUpdate.content }}</p>
+          </div>
+      </div>
+  </div>
+</div>

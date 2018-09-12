@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BackAPIService, NotificationData } from '../back-api.service';
 
 
-interface Device {
+export interface Device {
   name: string,
   token: string
 }
