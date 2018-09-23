@@ -16,6 +16,8 @@ interface Device {
 export class EolComponent implements OnInit {
   devices: Array<Device> = []
   updates: Array<Update> = []
+  selectedDevice: Device
+  selectedUpdate: Update
 
   constructor(private backAPI: BackAPIService) { 
 

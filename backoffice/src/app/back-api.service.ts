@@ -43,9 +43,9 @@ export interface BeaconDeviceSend {
 export class BackAPIService {
 
   constructor(private http: HttpClient) { }
-  url: string = "http://192.168.1.49:4000/api"
+  //url: string = "http://192.168.1.49:4000/api"
   //url: string = "http://90.127.80.59:4000/api"
-  //url: string = "http://localhost:4000/api"
+  url: string = "http://localhost:4000/api"
   getData(url: string) {
     return this.http.get(this.url + url)
   }
