@@ -14,6 +14,28 @@ export interface Update {
   content?: string
 }
 
+export interface BeaconDevice {
+  id?: number,
+  beaconId?: string,
+  major?: string,
+  minor?: string
+}
+
+export interface BeaconPassage {
+  date?: string,
+  beaconID?: string,
+  deviceID?: string,
+  major?: string,
+  minor?: string
+}
+
+export interface BeaconDeviceSend {
+  id?: number,
+  beaconId?: string,
+  major?: Number,
+  minor?: Number
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -44,5 +66,23 @@ export class BackAPIService {
       })
     }
     return this.http.post(this.url + "/notification", note, httpOptions)
+  }
+
+  postBeaconDevice(note: BeaconDeviceSend) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    }
+    return this.http.post(this.url + "/beaconDevice", note, httpOptions)
+  }
+
+  updateBeaconDevice(note: BeaconDeviceSend) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    }
+    return this.http.put(this.url + "/beaconDevice", note, httpOptions)
   }
 }

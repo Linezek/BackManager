@@ -1,3 +1,76 @@
-<p>
-  home works!
-</p>
+<h2 class="text-center title-position">Beacons</h2>
+<br/>
+<div class="container">
+  <div class="row">
+      <div class="col" *ngFor="let value of nbOfPassage">   
+        {{value.Id}}
+        <br/>
+        {{value.nbOfPassage}}
+      </div>
+  </div>
+  <br/>
+  <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="updateValueBeaconClick()">Refresh</button>
+</div>
+<br/><br/>
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <h2 class="text-center title-position">Update Beacon</h2>
+          <form>
+              <div class="form-group">
+                  <label for="exampleFormControlSelect1">Name</label>
+                  <select class="form-control" [(ngModel)]="selectedBeacon" name="device" (click)="updateBeaconView(selectedBeacon)">
+                      <option *ngFor="let device of devices" [ngValue]="device" (click)="updateBeaconView()">{{device.beaconId}}</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="exampleFormControlInput1">Major</label>
+                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Major number" [(ngModel)]="majorUpdate" name="majorUpdate">
+              </div>
+              <div class="form-group">
+                  <label for="exampleFormControlInput1">Minor</label>
+                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Minor number" [(ngModel)]="minorUpdate" name="minorUpdate">
+              </div>
+          </form>
+          <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="sendUpdateBeaconClick()">Update beacon</button>
+          <div *ngIf="statusUpdate == 400">
+              <div class="alert alert-danger" role="alert">
+                  Error missing informations
+              </div>
+          </div>
+          <div *ngIf="statusUpdate == 200">
+              <div class="alert alert-success" role="alert">
+                  Success, new notifcation has been send
+              </div>
+          </div>
+      </div>
+      <div class="col">
+          <h2 class="text-center title-position">Add Beacon</h2>
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Name</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name of the device" [(ngModel)]="nameAdd" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Major</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Major number" [(ngModel)]="majorAdd" name="majorAdd">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Minor</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Minor number" [(ngModel)]="minorAdd" name="majorAdd">
+                </div>
+            </form>
+            <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="sendAddBeaconClick()">Add beacon</button>
+            <div *ngIf="statusAdd == 400">
+                <div class="alert alert-danger" role="alert">
+                    Error missing informations
+                </div>
+            </div>
+            <div *ngIf="statusAdd == 200">
+                <div class="alert alert-success" role="alert">
+                    Success, new notifcation has been send
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
