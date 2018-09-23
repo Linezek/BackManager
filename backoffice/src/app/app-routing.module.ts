@@ -8,9 +8,9 @@ import { EolUpdateComponent } from './eol-update/eol-update.component';
 
 const routes: Routes = [
   { path: '',  component: HomeComponent },
-  { path: 'eol', component: EolComponent },
-  { path: 'eol/notification', component: EolNotificationComponent },
-  { path: 'eol/update', component: EolUpdateComponent }
+ // { path: 'eol', component: EolComponent },
+  //{ path: 'eol/notification', component: EolNotificationComponent },
+  //{ path: 'eol/update', component: EolUpdateComponent }
 
 ];
 
